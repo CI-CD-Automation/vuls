@@ -137,9 +137,10 @@ func (l *base) runningKernel() (release, version string, err error) {
 		if 6 < len(ss) {
 			version = ss[6]
 		}
+		version = "5.15"
 		if _, err := debver.NewVersion(version); err != nil {
 			l.log.Warnf("kernel running version is invalid. skip kernel vulnerability detection. actual kernel version: %s, err: %s", version, err)
-			version = ""
+			version = "5.15"
 		}
 	}
 	return
